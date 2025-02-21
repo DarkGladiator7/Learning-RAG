@@ -87,7 +87,7 @@ def extract_subdomain_details(subdomain):
         elif in_subsets_section:
             if line.endswith(":") and not line.startswith("-"):
                 current_section = line[:-1].strip().lower().replace(" ", "_")
-                extracted_data["subsets"][current_section] = []
+                extracted_data["subsets"][current_section] = [] 
             elif current_section and line.startswith("- "):
                 extracted_data["subsets"][current_section].append(line[2:])
 

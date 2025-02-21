@@ -1,14 +1,14 @@
 import csv
 import json
 import os
-from skill_agent import extract_related_skills
-from domain_agent import extract_domain_skills
+from subdomain_agent1 import extract_subdomain_details
+from domain_agent1 import extract_domain_subfields
 from langchain.chat_models import init_chat_model
 
 # Initialize LLM for optimization
 llm = init_chat_model("llama3-8b-8192", model_provider="groq")
 
-CSV_FILE = "master_it_skills.csv"
+CSV_FILE = "master_it_subdomains.csv"
 
 def load_csv_data():
     """Loads existing CSV data into a dictionary for efficient lookup."""
@@ -17,14 +17,14 @@ def load_csv_data():
         with open(CSV_FILE, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                skill_name = row["Skill Name"].strip().lower()
-                data[skill_name] = row
+                subdomain_name = row["Subdomain Name"].strip().lower()
+                data[subdomain_name] = row
     return data
 
 def save_csv_data(data):
     """Saves updated data back into the CSV."""
     with open(CSV_FILE, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["Skill Name", "Skill Description", "Aliases", "Skill Type", "Skill Usages", "Subsets"])
+        writer = csv.DictWriter(f, fieldnames=["Subdomain Name", "Subdomain Description", "Related Roles", "Key Technologies", "Required Skills", "Subsets"])
         writer.writeheader()
         for row in data.values():
             writer.writerow(row)
@@ -33,7 +33,7 @@ def optimize_with_llm(existing_entry, new_entry):
     """Uses LLM to intelligently merge and optimize data."""
     
     prompt = f"""
-    Optimize the IT skill dataset by merging these two entries while ensuring no redundant or repetitive information.
+    Optimize the IT subdomain dataset by merging these two entries while ensuring no redundant or repetitive information.
 
     Existing Entry:
     {json.dumps(existing_entry, indent=4)}
@@ -42,8 +42,10 @@ def optimize_with_llm(existing_entry, new_entry):
     {json.dumps(new_entry, indent=4)}
 
     Ensure:
-    - No duplicate skill names or aliases (e.g., "Java" and "Java Developer" should be merged)
-    - No redundant or repeated skill descriptions
+    - No duplicate subdomain names or related roles
+    - No redundant or repeated subdomain descriptions
+    - Reason youself for every part of 
+    - Every part of the json should be saturated such that no more info can be added to it 
     - Only add missing and useful details
     - Keep subsets properly structured
 
@@ -59,43 +61,43 @@ def optimize_with_llm(existing_entry, new_entry):
         print("Error! LLM returned an invalid JSON format. Using the existing best data.")
         return existing_entry  # Fallback to the existing best data
 
-def update_or_add_skills(domain_query):
+def update_or_add_subdomains(domain_query):
     """Checks for existing data, optimizes, and updates the CSV."""
     
     existing_data = load_csv_data()
     
-    # Step 1: Get domain-related skills
-    domain_result = extract_domain_skills(domain_query)
+    # Step 1: Get subdomains related to the given domain
+    domain_result = extract_domain_subfields(domain_query)
     domain_name = domain_result.get("Domain", "Unknown Domain")
-    required_skills = domain_result.get("Required Skills", [])
-    
-    print(f"\nChecking and optimizing IT domain '{domain_name}' skills...")
+    subdomains = domain_result.get("Subdomains", [])
 
-    for skill in required_skills:
-        skill_key = skill.lower()
+    print(f"\nChecking and optimizing IT domain '{domain_name}' subdomains...")
 
-        # Fetch new skill details
-        new_skill_data = extract_related_skills(skill)
+    for subdomain in subdomains:
+        subdomain_key = subdomain.lower()
 
-        if skill_key in existing_data:
-            print(f"Optimizing existing skill: {skill}")
-            current_data = existing_data[skill_key]
+        # Fetch new subdomain details
+        new_subdomain_data = extract_subdomain_details(subdomain)
+
+        if subdomain_key in existing_data:
+            print(f"Optimizing existing subdomain: {subdomain}")
+            current_data = existing_data[subdomain_key]
 
             # Optimize using LLM
-            optimized_data = optimize_with_llm(current_data, new_skill_data)
+            optimized_data = optimize_with_llm(current_data, new_subdomain_data)
 
             # Update the dataset
-            existing_data[skill_key] = optimized_data
+            existing_data[subdomain_key] = optimized_data
 
         else:
-            print(f"Adding new optimized skill: {skill}")
-            existing_data[skill_key] = {
-                "Skill Name": new_skill_data.get("skill_name", ""),
-                "Skill Description": new_skill_data.get("skill_description", ""),
-                "Aliases": json.dumps(new_skill_data.get("aliases", [])),
-                "Skill Type": new_skill_data.get("skill_type", ""),
-                "Skill Usages": json.dumps(new_skill_data.get("skill_usages", [])),
-                "Subsets": json.dumps(new_skill_data.get("subsets", {}))
+            print(f"Adding new optimized subdomain: {subdomain}")
+            existing_data[subdomain_key] = {
+                "Subdomain Name": new_subdomain_data.get("subdomain_name", ""),
+                "Subdomain Description": new_subdomain_data.get("subdomain_description", ""),
+                "Related Roles": json.dumps(new_subdomain_data.get("related_roles", [])),
+                "Key Technologies": json.dumps(new_subdomain_data.get("key_technologies", [])),
+                "Required Skills": json.dumps(new_subdomain_data.get("required_skills", [])),
+                "Subsets": json.dumps(new_subdomain_data.get("subsets", {}))
             }
 
     # Save updated CSV
@@ -103,5 +105,5 @@ def update_or_add_skills(domain_query):
     print("\n✔ CSV file successfully optimized and updated!")
 
 if __name__ == "__main__":
-    user_input = input("Enter the IT domain to update or add skills: ").strip()
-    update_or_add_skills(user_input)
+    user_input = input("Enter the IT domain to update or add subdomains: ").strip()
+    update_or_add_subdomains(user_input)

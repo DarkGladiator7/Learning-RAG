@@ -50,7 +50,7 @@ def main():
     print("Final JSON Output:")
     print(json.dumps(final_output, indent=4))
 
-    # Save subdomain details to CSV
+    '''# Save subdomain details to CSV
     csv_file = "final_subdomains_output.csv"
     with open(csv_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -73,7 +73,12 @@ def main():
             ]
             writer.writerow(row)
 
-    print(f"Final output stored in {csv_file}")
+    print(f"Final output stored in {csv_file}")'''
+    json_file = "final_subdomains_output.json"
+    with open(json_file, "w", encoding="utf-8") as f:
+        json.dump(final_output, f, indent=4)
+    
+    print(f"Final output stored in {json_file}")
 
 if __name__ == "__main__":
     main()

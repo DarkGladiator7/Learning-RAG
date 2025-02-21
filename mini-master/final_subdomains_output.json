@@ -1,0 +1,510 @@
+{
+    "Domain": "computer science",
+    "Subdomains": [
+        "Artificial intelligence",
+        "Networking",
+        "Artificial Intelligence",
+        "Operating Systems",
+        "Software Engineering",
+        "Software engineering",
+        "Computer Architecture",
+        "Information systems",
+        "Algorithms",
+        "Big Data and Analytics",
+        "Artificial Intelligence (AI)",
+        "Web Development",
+        "Computer security",
+        "Machine Learning",
+        "Algorithm design and analysis",
+        "Operating systems",
+        "Computer Vision",
+        "Bioinformatics",
+        "Theory of computation",
+        "Human-Computer Interaction (HCI)",
+        "Computer networks",
+        "Theoretical computer science",
+        "Computer systems",
+        "Mathematical software",
+        "Data Science",
+        "Natural language processing",
+        "Cloud Computing",
+        "Databases",
+        "Database systems",
+        "Parallel computing",
+        "Language theory",
+        "Computer Graphics",
+        "Network Security",
+        "Human-Computer Interaction",
+        "Computer architecture",
+        "Concurrency",
+        "Computer vision",
+        "Theory of Computation",
+        "Algorithm Analysis and Design",
+        "Database Systems",
+        "Network Science",
+        "Cryptography",
+        "Natural Language Processing (NLP)",
+        "Information retrieval",
+        "Programming Languages",
+        "Programming languages",
+        "Computer Networks",
+        "Cybersecurity",
+        "Human-computer interaction",
+        "Machine learning"
+    ],
+    "Detailed Subdomains": [
+        {
+            "subdomain_name": "Artificial intelligence",
+            "subdomain_description": "The artificial intelligence (AI) subdomain in IT refers to the development and application of intelligent systems that can perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.",
+            "related_roles": [
+                "Data Scientist",
+                "Machine Learning Engineer",
+                "AI/ML Researcher",
+                "AI/ML Developer",
+                "Business Intelligence Developer",
+                "Data Analyst",
+                "Business Analyst",
+                "IT Project Manager",
+                "Quality Assurance Engineer."
+            ],
+            "key_technologies": [
+                "Machine Learning",
+                "Deep Learning",
+                "Natural Language Processing (NLP)",
+                "Computer Vision",
+                "Robotics",
+                "Neural Networks",
+                "Decision Trees",
+                "Random Forests",
+                "Support Vector Machines",
+                "K-Means Clustering",
+                "Principal Component Analysis (PCA)."
+            ],
+            "required_skills": [
+                "Programming skills in languages such as Python",
+                "R",
+                "Java",
+                "C++",
+                "or MATLAB; data analysis and visualization skills; knowledge of machine learning algorithms and techniques; experience with popular AI frameworks and libraries; strong problem-solving and analytical skills; ability to work with large datasets; familiarity with cloud-based platforms such as AWS",
+                "Azure",
+                "or Google Cloud; understanding of data preprocessing and feature engineering techniques."
+            ],
+            "subsets": {
+                "popular_frameworks": [
+                    "TensorFlow",
+                    "PyTorch",
+                    "Keras",
+                    "OpenCV",
+                    "Scikit-Learn"
+                ],
+                "common_tools": [
+                    "Jupyter Notebook",
+                    "VS Code",
+                    "Anaconda",
+                    "IBM Watson Studio",
+                    "Google Colab"
+                ],
+                "machine_learning_libraries": [
+                    "scikit-learn",
+                    "TensorFlow",
+                    "PyTorch",
+                    "Keras",
+                    "OpenCV"
+                ],
+                "data_preprocessing_tools": [
+                    "Pandas",
+                    "NumPy",
+                    "Matplotlib",
+                    "Scipy",
+                    "Seaborn"
+                ],
+                "cloud-based_platforms": [
+                    "AWS SageMaker",
+                    "Google Cloud AI Platform",
+                    "Microsoft Azure Machine Learning",
+                    "IBM Watson Studio"
+                ]
+            }
+        },
+        {
+            "subdomain_name": "Networking",
+            "subdomain_description": "The Networking subdomain involves designing, implementing, maintaining, and troubleshooting computer networks, including local area networks (LANs), wide area networks (WANs), and the Internet.",
+            "related_roles": [
+                "Network Architect",
+                "Network Administrator",
+                "Network Engineer",
+                "Network Consultant",
+                "Network Security Specialist"
+            ],
+            "key_technologies": [
+                "TCP/IP",
+                "DNS",
+                "DHCP",
+                "HTTP",
+                "FTP",
+                "SSH",
+                "VLANs",
+                "VPNs",
+                "routers",
+                "switches",
+                "firewalls",
+                "load balancers",
+                "intrusion detection systems (IDS)"
+            ],
+            "required_skills": [
+                "Understanding of networking protocols",
+                "network architecture",
+                "network security",
+                "troubleshooting",
+                "configuration management",
+                "network performance optimization",
+                "teamwork",
+                "communication"
+            ],
+            "subsets": {
+                "network_devices": [
+                    "Routers",
+                    "Switches",
+                    "Firewalls",
+                    "Load Balancers",
+                    "Intrusion Detection Systems (IDS)",
+                    "Network Attached Storage (NAS) devices"
+                ],
+                "network_protocols": [
+                    "TCP/IP",
+                    "DNS",
+                    "DHCP",
+                    "HTTP",
+                    "FTP",
+                    "SSH",
+                    "SSL/TLS"
+                ],
+                "network_topologies": [
+                    "LAN (Local Area Network)",
+                    "WAN (Wide Area Network)",
+                    "MAN (Metropolitan Area Network)",
+                    "CAN (Campus Area Network)",
+                    "WLAN (Wireless Local Area Network)"
+                ]
+            }
+        },
+        {
+            "subdomain_name": "Artificial intelligence",
+            "subdomain_description": "The application of machine learning, deep learning, and natural language processing to develop intelligent systems that can perform tasks that typically require human intelligence.",
+            "related_roles": [
+                "Data Scientist",
+                "Machine Learning Engineer",
+                "Artificial Intelligence Engineer",
+                "AI Researcher",
+                "Computer Vision Engineer",
+                "Natural Language Processing Engineer",
+                "Robotics Engineer."
+            ],
+            "key_technologies": [
+                "Machine Learning",
+                "Deep Learning",
+                "Natural Language Processing",
+                "Computer Vision",
+                "Robotics",
+                "Neural Networks",
+                "Convolutional Neural Networks",
+                "Recurrent Neural Networks",
+                "Long Short-Term Memory Networks."
+            ],
+            "required_skills": [
+                "Programming skills in Python",
+                "R",
+                "or MATLAB; experience with machine learning libraries such as scikit-learn",
+                "TensorFlow",
+                "or PyTorch; understanding of mathematical concepts such as linear algebra",
+                "calculus",
+                "and probability; knowledge of data structures and algorithms; ability to work with large datasets and perform data preprocessing; experience with data visualization tools such as Matplotlib",
+                "Seaborn",
+                "or Plotly."
+            ],
+            "subsets": {
+                "popular_frameworks": [
+                    "TensorFlow",
+                    "PyTorch",
+                    "Keras",
+                    "OpenCV"
+                ],
+                "common_tools": [
+                    "Jupyter Notebook",
+                    "VS Code",
+                    "Anaconda",
+                    "Spyder",
+                    "IBM Watson Studio"
+                ],
+                "machine_learning_libraries": [
+                    "scikit-learn",
+                    "TensorFlow",
+                    "PyTorch",
+                    "Keras",
+                    "LightGBM"
+                ],
+                "data_preprocessing_tools": [
+                    "Pandas",
+                    "NumPy",
+                    "Scipy",
+                    "Matplotlib",
+                    "Scikit-image"
+                ]
+            }
+        },
+        {
+            "subdomain_name": "Operating systems",
+            "subdomain_description": "The design, development, testing, and maintenance of operating systems (OS) that manage computer hardware resources and provide common services to computer programs.",
+            "related_roles": [
+                "System Administrator",
+                "Network Administrator",
+                "System Engineer",
+                "IT Manager",
+                "DevOps Engineer",
+                "Software Developer."
+            ],
+            "key_technologies": [
+                "Windows",
+                "Linux",
+                "macOS",
+                "Unix",
+                "Android",
+                "iOS",
+                "Docker",
+                "Kubernetes",
+                "Virtualization",
+                "Cloud Computing."
+            ],
+            "required_skills": [
+                "Programming languages (C",
+                "C++",
+                "Java",
+                "Python)",
+                "operating system knowledge (Windows",
+                "Linux",
+                "macOS)",
+                "networking fundamentals",
+                "scripting (Bash",
+                "PowerShell)",
+                "configuration management (Ansible",
+                "Puppet)",
+                "troubleshooting and debugging skills."
+            ],
+            "subsets": {
+                "types_of_operating_systems": [
+                    "Desktop Operating Systems (e.g., Windows, macOS)",
+                    "Mobile Operating Systems (e.g., Android, iOS)",
+                    "Server Operating Systems (e.g., Windows Server, Linux)",
+                    "Embedded Operating Systems (e.g., Real-Time Operating Systems, Firmware)",
+                    "Mainframe Operating Systems (e.g., z/OS, z/VM)"
+                ],
+                "operating_system_concepts": [
+                    "Process Management",
+                    "Memory Management",
+                    "File Systems",
+                    "Input/Output (I/O) Management",
+                    "Security",
+                    "Networking",
+                    "Device Management"
+                ],
+                "operating_system_families": [
+                    "Windows Family (e.g., Windows NT, Windows 2000, Windows 7, Windows 10)",
+                    "Unix Family (e.g., Linux, macOS, BSD)",
+                    "macOS Family (e.g., macOS, macOS Server)",
+                    "Android Family (e.g., Android, Android Things)",
+                    "iOS Family (e.g., iOS, iPadOS)"
+                ]
+            }
+        },
+        {
+            "subdomain_name": "Software engineering",
+            "subdomain_description": "Software engineering is the application of engineering principles and techniques to the design, development, testing, and maintenance of software systems.",
+            "related_roles": [
+                "Software Engineer",
+                "Software Developer",
+                "Software Architect",
+                "Quality Assurance (QA) Engineer",
+                "Technical Lead",
+                "DevOps Engineer"
+            ],
+            "key_technologies": [
+                "Agile",
+                "Scrum",
+                "Version Control Systems (VCS) such as Git",
+                "Programming Languages (Java",
+                "Python",
+                "C++",
+                "etc.)",
+                "Integrated Development Environments (IDEs) such as Eclipse",
+                "IntelliJ",
+                "Visual Studio",
+                "Cloud Computing Platforms (AWS",
+                "Azure",
+                "Google Cloud)",
+                "Containerization (Docker)",
+                "Microservices Architecture"
+            ],
+            "required_skills": [
+                "Problem-solving",
+                "Debugging",
+                "Object-Oriented Programming (OOP)",
+                "Design Patterns",
+                "Algorithm Design",
+                "Data Structures",
+                "Database Management",
+                "Testing",
+                "Debugging",
+                "Communication",
+                "Team Collaboration",
+                "Adaptability",
+                "Continuous Learning"
+            ],
+            "subsets": {
+                "development_methodologies": [
+                    "Waterfall",
+                    "Agile",
+                    "Scrum",
+                    "Kanban",
+                    "Extreme Programming (XP)"
+                ],
+                "programming_paradigms": [
+                    "Imperative Programming",
+                    "Object-Oriented Programming (OOP)",
+                    "Functional Programming",
+                    "Declarative Programming"
+                ],
+                "software_development_life_cycle_(sdlc)_phases": [
+                    "Requirements Gathering",
+                    "Design",
+                    "Implementation",
+                    "Testing",
+                    "Deployment",
+                    "Maintenance"
+                ]
+            }
+        },
+        {
+            "subdomain_name": "Software engineering",
+            "subdomain_description": "Software engineering is the application of engineering principles and techniques to the design, development, testing, and maintenance of software systems.",
+            "related_roles": [
+                "software engineer",
+                "software developer",
+                "software architect",
+                "DevOps engineer",
+                "product manager",
+                "IT project manager"
+            ],
+            "key_technologies": [
+                "Java",
+                "Python",
+                "C++",
+                "JavaScript",
+                "HTML/CSS",
+                "Agile methodologies",
+                "Scrum",
+                "Waterfall",
+                "Git",
+                "Jenkins",
+                "Docker",
+                "Kubernetes"
+            ],
+            "required_skills": [
+                "programming languages",
+                "software development life cycle",
+                "design patterns",
+                "testing methodologies",
+                "Agile principles",
+                "communication skills",
+                "problem-solving skills",
+                "teamwork and collaboration"
+            ],
+            "subsets": {
+                "software_development_methodologies": [
+                    "Agile",
+                    "Scrum",
+                    "Waterfall",
+                    "Kanban"
+                ],
+                "programming_languages": [
+                    "Java",
+                    "Python",
+                    "C++",
+                    "JavaScript",
+                    "C#",
+                    "Swift"
+                ],
+                "development_tools": [
+                    "Git",
+                    "Jenkins",
+                    "Docker",
+                    "Kubernetes",
+                    "Visual Studio",
+                    "Eclipse",
+                    "IntelliJ IDEA"
+                ]
+            }
+        },
+        {
+            "subdomain_name": "Computer architecture",
+            "subdomain_description": "The study of the design and organization of computer systems, including the selection and interconnection of hardware components, such as CPUs, memory, and input/output devices, to create a functional and efficient system.",
+            "related_roles": [
+                "Computer Architect",
+                "Hardware Engineer",
+                "Systems Engineer",
+                "Design Engineer",
+                "Microprocessor Engineer"
+            ],
+            "key_technologies": [
+                "CPU design",
+                "memory hierarchy",
+                "input/output systems",
+                "pipelining",
+                "instruction-level parallelism",
+                "multi-core processors",
+                "memory management units",
+                "cache hierarchy"
+            ],
+            "required_skills": [
+                "Knowledge of computer hardware and architecture",
+                "programming skills in languages like C and assembly",
+                "understanding of digital logic and microprocessors",
+                "experience with computer-aided design (CAD) tools",
+                "analytical and problem-solving skills."
+            ],
+            "subsets": {
+                "hardware_components": [
+                    "CPU (Central Processing Unit)",
+                    "Memory (RAM, ROM, Cache)",
+                    "Input/Output Devices (keyboard, mouse, monitor, hard drive)",
+                    "Storage (hard drive, solid-state drive, flash drive)",
+                    "Interconnects (buses, switches, routers)",
+                    "Peripherals ( printers, scanners, modems)",
+                    "Power Supply",
+                    "Cooling Systems"
+                ],
+                "design_principles": [
+                    "Pipelining",
+                    "Instruction-Level Parallelism",
+                    "Flynn's Taxonomy",
+                    "Von Neumann Architecture",
+                    "Harvard Architecture",
+                    "RISC (Reduced Instruction Set Computing)",
+                    "CISC (Complex Instruction Set Computing)",
+                    "Superscalar Execution",
+                    "Out-of-Order Execution",
+                    "Branch Prediction",
+                    "Cache Hierarchy"
+                ],
+                "memory_hierarchy": [
+                    "Cache Memory",
+                    "Main Memory (RAM)",
+                    "Virtual Memory",
+                    "Page Replacement Algorithms",
+                    "Cache Replacement Policies",
+                    "Memory-Mapped I/O",
+                    "Paged Memory Management"
+                ]
+            }
+        }
+    ]
+}
