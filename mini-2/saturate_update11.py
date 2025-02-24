@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from subdomain_agent11 import extract_subdomain_details
 from domain_agent11 import extract_domain_subfields
 from langchain.chat_models import init_chat_model
@@ -40,10 +41,14 @@ def optimize_with_llm(existing_entry, new_entry):
 
     Ensure:
     - No duplicate subdomain names
+    - Do not add or combine on your own just check if any data is missing and add it
     - No redundant or repeated subdomain descriptions
-    - Ensure technical skills are fully saturated and comprehensive
+    - Do not merge the subdomain name at any cost
+    - Ensure technical skills in the existing entry are fully saturated and comprehensive
     - Only add missing and useful details
     - Keep subsets properly structured
+    - Don't add any extra information or symbols in the output strictly follow the format
+    - Use the same format as the existing entry
     
     Provide the final optimized JSON object.
     """
@@ -51,9 +56,11 @@ def optimize_with_llm(existing_entry, new_entry):
     print("Sending prompt to LLM for optimization...")
     response = llm.invoke(prompt)
     print("Received response from LLM.")
-    
+    raw_response = response.content.strip()
+    match = re.search(r'\{.*\}', raw_response, re.DOTALL)
+    json_str = match.group(0)
     try:
-        optimized_data = json.loads(response.content.strip())
+        optimized_data = json.loads(json_str)
         print(f"Optimization successful for {existing_entry.get('Subdomain Name', 'Unknown')}.")
         return optimized_data
     except json.JSONDecodeError:
@@ -80,9 +87,10 @@ def infer_main_domain_with_llm(subdomain_name):
 
     print("Sending prompt to LLM for domain inference...")
     response = llm.invoke(prompt)
-
+    print(response.content.strip())
     try:
         inferred_domain = json.loads(response.content.strip())
+        
         if "domain" in inferred_domain:
             print(f"LLM inferred main domain: {inferred_domain['domain']}")
             return inferred_domain["domain"]
@@ -105,6 +113,7 @@ def normalize_subdomain_with_llm(subdomain_name):
     - Return a JSON object where "subdomain" is the given input, and you have to return the most generalized name of the given input.
     - Do not return any Python code.
     - Example if input is ml then output has to be:
+    - Do not add any extra info just this output
     {{"subdomain": "Machine Learning"}}
     """
 
@@ -124,28 +133,34 @@ def normalize_subdomain_with_llm(subdomain_name):
 
     return subdomain_name  # Default fallback
 
-
 def update_or_add_subdomains(domain_query):
     """Ensures the correct main domain is identified before updating subdomains."""
-    
+
     print("Starting update_or_add_subdomains function...")
 
+    # Load existing JSON data
     existing_data = load_json_data()
     print("Loaded existing JSON data.")
 
-    print(f"Fetching subdomains for domain: {domain_query}...")
-    domain_result = extract_domain_subfields(domain_query)
+    # Check if domain already exists in JSON
+    if domain_query in existing_data:
+        print(f"Domain '{domain_query}' found in existing data.")
+        domain_name = domain_query
+        subdomains = list(existing_data[domain_query].keys())  # Extract existing subdomains
+    else:
+        print(f"Domain '{domain_query}' not found. Extracting subdomains...")
+        domain_result = extract_domain_subfields(domain_query)
 
-    # If domain extraction fails, infer the correct main domain using LLM
-    domain_name = domain_result.get("Domain")
-    if not domain_name:
-        print(f"Warning: Could not determine the main domain for '{domain_query}'. Using LLM to find the correct domain...")
-        domain_name = infer_main_domain_with_llm(domain_query)
+        domain_name = domain_result.get("Domain")
+        if not domain_name:
+            print(f"Warning: Could not determine the main domain for '{domain_query}'. Using LLM to infer...")
+            domain_name = infer_main_domain_with_llm(domain_query)
 
-    subdomains = domain_result.get("Subdomains", [])
-
+        subdomains = domain_result.get("Subdomains", []) or []
+    
+    # If no subdomains are found, infer one using LLM
     if not subdomains:
-        print(f"Warning: No subdomains found for '{domain_name}'. Creating minimal entry using LLM...")
+        print(f"Warning: No subdomains found for '{domain_name}'. Using LLM to infer one...")
         inferred_subdomain = normalize_subdomain_with_llm(domain_query)
         subdomains = [inferred_subdomain]
 
@@ -168,6 +183,7 @@ def update_or_add_subdomains(domain_query):
         # Fetch new subdomain details
         new_subdomain_data = extract_subdomain_details(subdomain)
 
+        # If extraction fails, create a minimal entry
         if not new_subdomain_data:
             print(f"Error: No details extracted for {normalized_subdomain}. Creating minimal entry.")
             new_subdomain_data = {
@@ -188,9 +204,9 @@ def update_or_add_subdomains(domain_query):
         # Check if the subdomain already exists
         if subdomain_key in existing_data[domain_name]:
             print(f"Updating existing subdomain: {normalized_subdomain}...")
-            current_data = existing_data[domain_name][subdomain_key]
 
-            # Optimize using LLM
+            # Fetch current data and optimize using LLM
+            current_data = existing_data[domain_name][subdomain_key]
             optimized_data = optimize_with_llm(current_data, new_subdomain_data)
 
             if not optimized_data:
@@ -199,12 +215,11 @@ def update_or_add_subdomains(domain_query):
 
             print(f"Optimized data for {normalized_subdomain}: {json.dumps(optimized_data, indent=4)}")
             existing_data[domain_name][subdomain_key] = optimized_data
-            updated_subdomains.append(normalized_subdomain)
-
         else:
             print(f"Adding new subdomain: {normalized_subdomain} under '{domain_name}'...")
             existing_data[domain_name][subdomain_key] = new_subdomain_data
-            updated_subdomains.append(normalized_subdomain)
+
+        updated_subdomains.append(normalized_subdomain)
 
     if not updated_subdomains:
         print("No updates were made. Exiting function.")
@@ -219,6 +234,7 @@ def update_or_add_subdomains(domain_query):
         "domain": domain_name,
         "updated_subdomains": updated_subdomains
     }
+
 
 
 if __name__ == "__main__":
