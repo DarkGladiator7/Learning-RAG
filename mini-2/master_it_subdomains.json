@@ -1,0 +1,68 @@
+{
+    "ml": {
+        "machine learning": {
+            "subdomain_name": "Ml",
+            "technical_skills": [
+                "Python",
+                "R",
+                "Julia",
+                "Java",
+                "Scala",
+                "C++",
+                "MATLAB",
+                "TensorFlow",
+                "PyTorch",
+                "Keras",
+                "Scikit-learn",
+                "OpenCV",
+                "NumPy",
+                "pandas",
+                "SciPy",
+                "AWS SageMaker",
+                "Google Cloud AI Platform",
+                "Azure Machine Learning",
+                "Spark MLlib",
+                "Hugging Face Transformers"
+            ],
+            "soft_skills": [
+                "Communication",
+                "Problem-Solving",
+                "Teamwork",
+                "Critical Thinking",
+                "Collaboration",
+                "Adaptability",
+                "Attention to Detail",
+                "Data Interpretation",
+                "Time Management",
+                "Prioritization"
+            ],
+            "industry_specific_skills": [
+                "Data Preprocessing",
+                "Feature Engineering",
+                "Model Development",
+                "Model Deployment",
+                "Model Evaluation",
+                "Hyperparameter Tuning",
+                "Regularization",
+                "Neural Networks",
+                "Deep Learning",
+                "Natural Language Processing",
+                "Computer Vision",
+                "Reinforcement Learning",
+                "Transfer Learning",
+                "Model Interpretability",
+                "Explainability",
+                "Fairness",
+                "Transparency"
+            ],
+            "certifications": [
+                "AWS Certified Machine Learning - Specialty",
+                "Google Cloud Certified - Professional Machine Learning Engineer",
+                "Certified Data Scientist",
+                "Certified Analytics Professional",
+                "Certified Machine Learning Engineer",
+                "Certified Artificial Intelligence Engineer"
+            ]
+        }
+    }
+}
